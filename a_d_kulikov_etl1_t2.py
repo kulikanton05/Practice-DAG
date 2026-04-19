@@ -10,7 +10,6 @@ import logging
 import io
 
 
-#Название репозитория = Ваш логин
 REPOSITORY_NAME = Path(__file__).parent.name.replace(".", "_")
 TASK = "etl1_t2"
 S3_SRC_BUCKET_NAME = "culab-files-prod"
@@ -29,7 +28,6 @@ DEFAULT_ARGS = {
 @dag(
     dag_id=f"{REPOSITORY_NAME}_{TASK}",
     start_date=datetime(2025, 1, 1, tz="UTC"),
-    # CROM раписание
     schedule="*/15 * * * *",
     tags=['de_2026', TASK],
     default_args=DEFAULT_ARGS,
